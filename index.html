@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Corporate Network Project | Portfolio</title>
+    <!-- External CSS Style Sheet Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Secure Corporate Network & Systems Infrastructure Implementation</h1>
+        <p style="font-size: 1.2rem; color: #64748b;">Enterprise Infrastructure Deployment & Security Hardening Lab</p>
+        <div class="badge-container">
+            <span class="badge tech">Windows Server 2022</span>
+            <span class="badge tech">Active Directory</span>
+            <span class="badge tech">Group Policy (GPO)</span>
+            <span class="badge tech">DHCP & DNS</span>
+            <span class="badge tech">NTFS Permissions</span>
+            <span class="badge tech">Print Management</span>
+            <span class="badge">Systems Security</span>
+        </div>
+    </header>
+
+    <div class="section-card">
+        <h2>Project Overview & Context</h2>
+        <p>This production-grade simulation project demonstrates the deployment of a highly secure corporate IT infrastructure environment. It replicates critical compliance and engineering operations required for an <strong>IT Systems & Infrastructure Support Specialist</strong>, specifically aligning with ITIL frameworks for delivery, change control, and system validation.</p>
+    </div>
+
+    <div class="section-card">
+        <h2>Technical Core Walkthrough</h2>
+        
+        <h3>1. Directory Services & Network Core Configuration</h3>
+        <p>Configured and promoted a Windows Server 2022 instance to act as the primary Domain Controller governing the root domain forest: <code>ap-infrastructure.local</code>. Core infrastructure services were deployed directly on the host instance:</p>
+        <div class="code-box">
+            Subnet Architecture: 192.168.10.0/24<br>
+            Domain Controller Static IP: 192.168.10.10 (Primary DNS)<br>
+            Active DHCP Scope Pool: 192.168.10.50 - 192.168.10.200
+        </div>
+        
+        <!-- Document Validation Images Section -->
+        <div class="project-images">
+            <img src="assets/network_topology.png" alt="Network Topology Diagram">
+            <img src="assets/dhcp_leases.png" alt="DHCP Leases Validation Screenshot">
+        </div>
+
+        <h3>2. Endpoint Security Hardening via Enforced GPOs</h3>
+        <p>To eliminate unauthorized host configurations and block common data exfiltration methods, a centralized Group Policy Object (<code>Secure_Workstation_Policy</code>) was engineered and linked directly to the organizational units:</p>
+        <ul>
+            <li><strong>Mass Storage Restriction:</strong> Completely disabled all removable media access (USB storage read/write permissions) at the operating system level.</li>
+            <li><strong>Administrative Environment Lock:</strong> Blocked user-level access to the Control Panel and system settings interface.</li>
+            <li><strong>Enterprise Firewall Enforcement:</strong> Centrally activated Windows Firewall and restricted end-user override privileges.</li>
+        </ul>
+        
+        <div class="project-images">
+            <img src="assets/gpo_block.png" alt="GPO Block Restriction Alert Screenshot">
+        </div>
+
+        <h3>3. Data Isolation Governance (NTFS Control Lists) & Print Deployment</h3>
+        <p>Implemented structural department isolation according to the <strong>Principle of Least Privilege (PoLP)</strong>:</p>
+        <ul>
+            <li>Created discrete Active Directory Global Security Groups: <code>GG_Engineering</code> and <code>GG_HR</code>.</li>
+            <li>Disabled inheritance flags on child storage blocks (<code>Engineering_Data</code> and <code>HR_Data</code>) to eliminate default domain user privileges.</li>
+            <li>Provisioned explicit NTFS Modify access rights specifically to matching departmental groups, triggering automated Access Denied alerts for unauthorized cross-department lateral movements.</li>
+            <li>Deployed a centralized print queue (<code>HQ-HP-LaserJet-Printer</code>) mapped directly via GPO logic to user profiles.</li>
+        </ul>
+        
+        <div class="project-images">
+            <img src="assets/ntfs_denied.png" alt="NTFS Security Permissions / Access Denied Window Screenshot">
+        </div>
+    </div>
+
+    <!-- NEW SECTION: Video Walkthrough Showcase -->
+    <div class="section-card">
+        <h2>60-Seconds Infrastructure Walkthrough</h2>
+        <p>Watch this quick technical verification video showcasing active Directory Organizational Units, DHCP validation, GPO restriction enforcement, and strict NTFS departmental access control on the Client endpoint.</p>
+        
+        <div class="video-wrapper">
+            <!-- Place your video file inside the assets folder -->
+            <video controls poster="assets/video_thumbnail.png">
+                <source src="assets/infrastructure_walkthrough.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="section-card" style="text-align: center;">
+        <h2>Inspection Test Report Documentation (ITR)</h2>
+        <p style="margin-bottom: 25px;">The deployment was validated under a strict, standardized ITIL-aligned testing template to simulate official stakeholder sign-off and production hand-over guidelines.</p>
+        <a href="assets/ITR_Infrastructure_Report_AP2026.pdf" download class="download-btn">
+            Download Full Technical ITR Report (PDF)
+        </a>
+    </div>
+</div>
+
+<!-- External JavaScript Link -->
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
